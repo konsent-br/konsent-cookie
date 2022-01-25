@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="assets/js/konsent-cookie.min.js"></script>
+    <script>
+      window.CookieKonsent.init({
+        language: {
+          current: "en",
+          locale: {
+            en: {
+              barMainText: 'Esse site utiliza cookies para melhorar a sua experiencia.',
+              barLinkSetting: 'Configurações de Cookies',
+              barBtnAcceptAll: 'Aceitar todos os Cookies',
+              modalMainTitle: 'Configurações de Cookies',
+              modalMainText: 'Cookies são pedaços de código que dão a um site uma espécie de memória de curto prazo, permitindo que ele se lembre de pequenos pedaços de sua navegação',
+              modalBtnSave: 'Salvar configurações atuais',
+              modalBtnAcceptAll: 'Aceitar todos os Cookies e fechar',
+              modalAffectedSolutions: 'Soluções afetadas:',
+              learnMore: 'Ler main',
+              on: 'Ligado',
+              off: 'Desligado',
+            }
+          },
+        },
+        categories: {
+          necessary: {
+            needed: true,
+            wanted: true,
+            checked: true,
+            language: {
+              locale: {
+                en: {
+                  name: "Cookies necessário",
+                  description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu commodo est, nec gravida odio. Suspendisse scelerisque a ex nec semper.",
+                },
+                hu: {
+                  name: "Szükséges sütik",
+                  description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu commodo est, nec gravida odio. Suspendisse scelerisque a ex nec semper.",
+                },
+              },
+            },
+          },
+          various: {
+            needed: false,
+            wanted: false,
+            checked: false,
+            language: {
+              locale: {
+                en: {
+                  name: "Diversos Cookies",
+                  description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                },
+                hu: {
+                  name: "Egyéb sütik",
+                  description:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu commodo est, nec gravida odio. Suspendisse scelerisque a ex nec semper.",
+                },
+              },
+            },
+          },
+        },
+        services: {
+          facebook: {
+            category: "various",
+            type: "dynamic-script", // dynamic-script, script-tag, wrapped, localcookie
+            search: "facebook",
+            language: {
+              locale: {
+                en: {
+                  name: "Facebook",
+                },
+                hu: {
+                  name: "Facebook",
+                },
+              },
+            },
+          },
+          azalead: {
+            category: "various",
+            type: "script-tag",
+            search: "azalead",
+            language: {
+              locale: {
+                en: {
+                  name: "Azalead",
+                },
+                hu: {
+                  name: "Azalead",
+                },
+              },
+            },
+          },
+          wrapped: {
+            category: "various",
+            type: "wrapped",
+            search: "wrapped",
+            language: {
+              locale: {
+                en: {
+                  name: "Wrapped",
+                },
+                hu: {
+                  name: "Csomagolt süti",
+                },
+              },
+            },
+          },
+          localcookie: {
+            category: "various",
+            type: "localcookie",
+            search: "localcookie",
+            language: {
+              locale: {
+                en: {
+                  name: "Cookies local",
+                },
+                hu: {
+                  name: "Helyi süti",
+                },
+              },
+            },
+          },
+        },
+      });
+    </script>
+    <title>Konsent Cookies</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="container-content">
+        <h1 class="title">Konsent Cookie</h1>
+        <h2 class="sub-title">
+          Demostrativo da tag de script para controle de Cookies.
+        </h2>
+      </div>
+    </div>
+  </body>
+</html>

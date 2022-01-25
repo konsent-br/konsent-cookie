@@ -1,0 +1,23 @@
+{
+  "name": "konsent-cookie",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel src/index.html --no-hmr",
+    "build": "npm run build:nomin && npm run build:min && npm run build:docs",
+    "build:nomin": "parcel build src/index.js --out-dir build --public-url . --out-file konsent-cookie.js --no-minify",
+    "build:min": "parcel build src/index.js --out-dir build --public-url . --out-file konsent-cookie.min.js",
+    "build:docs": "parcel build src/index.js --out-dir docs_src/src/assets/js --public-url . --out-file konsent-cookie.min.js"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "core-js": "^2.6.5",
+    "parcel-bundler": "^1.11.0",
+    "redom": "^3.18.0"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,36 @@
+* {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+  color: #303030;
+}
+
+.cc-text {
+  color: #fcfcfc;
+}
+
+.ccm__content, #ccm__footer__consent-modal-submit, .consent-give {
+  border-radius: 12px !important;
+}
+
+.container {
+  width: 100%;
+  padding: 64px 0;
+  background-color: #efefef;
+}
+
+.container-content {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+}
+
+.sub-title {
+  width: 100%;
+  text-align: center;
+  margin-top: 16px;
+}
