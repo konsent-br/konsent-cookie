@@ -5,11 +5,14 @@ import LocalCookieFilter from './LocalCookieFilter';
 import Interface from './Interface';
 import Configuration from './Configuration';
 import RemoveCookies from './RemoveCookies';
+import Website from './Website'
 
 export default class CookieKonsent {
 
-  init(configObject) {
-    new Configuration(configObject);
+  async init() {
+    const websiteClass = new Website();
+    const website = await websiteClass.getWebsite()
+    new Configuration(website);
 
     const removeCookies = new RemoveCookies();
     const insertScriptFilter = new InsertScriptFilter();
@@ -29,5 +32,4 @@ export default class CookieKonsent {
       UI.addEventListeners();
     });
   }
-
 }

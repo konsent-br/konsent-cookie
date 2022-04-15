@@ -3023,9 +3023,10 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 var Configuration = /*#__PURE__*/function () {
-  function Configuration(configObject) {
+  function Configuration(configObject, website) {
     _classCallCheck(this, Configuration);
 
+    this.website = website;
     window.CookieKonsent.buffer = {
       appendChild: [],
       insertBefore: []
@@ -3042,41 +3043,28 @@ var Configuration = /*#__PURE__*/function () {
       modalMainTextMoreLink: null,
       barTimeout: 1000,
       theme: {
-        barColor: '#2C7CBF',
-        barTextColor: '#FFF',
-        barMainButtonColor: '#FFF',
-        barMainButtonTextColor: '#2C7CBF',
-        modalMainButtonColor: '#4285F4',
-        modalMainButtonTextColor: '#FFF'
+        barColor: this.website.theme.primary_color || "#2C7CBF",
+        barTextColor: this.website.theme.background_color || "#FFF",
+        barMainButtonColor: this.website.theme.background_color || "#FFF",
+        barMainButtonTextColor: this.website.theme.primary_color || "#2C7CBF",
+        modalMainButtonColor: this.website.theme.primary_color || "#2C7CBF",
+        modalMainButtonTextColor: this.website.theme.background_color || "#FFF"
       },
       language: {
-        current: 'en',
+        current: "pt",
         locale: {
-          en: {
-            barMainText: 'This website uses cookies to ensure you get the best experience on our website.',
-            barLinkSetting: 'Cookie Settings',
-            barBtnAcceptAll: 'Accept all cookies',
-            modalMainTitle: 'Cookie settings',
-            modalMainText: 'Cookies are small piece of data sent from a website and stored on the user\'s computer by the user\'s web browser while the user is browsing. Your browser stores each message in a small file, called cookie. When you request another page from the server, your browser sends the cookie back to the server. Cookies were designed to be a reliable mechanism for websites to remember information or to record the user\'s browsing activity.',
-            modalBtnSave: 'Save current settings',
-            modalBtnAcceptAll: 'Accept all cookies and close',
-            modalAffectedSolutions: 'Affected solutions:',
-            learnMore: 'Learn More',
-            on: 'On',
-            off: 'Off'
-          },
-          hu: {
-            barMainText: 'Ez a weboldal Sütiket használ a jobb felhasználói élmény érdekében.',
-            barLinkSetting: 'Süti beállítások',
-            barBtnAcceptAll: 'Minden süti elfogadása',
-            modalMainTitle: 'Süti beállítások',
-            modalMainText: 'A HTTP-süti (általában egyszerűen süti, illetve angolul cookie) egy információcsomag, amelyet a szerver küld a webböngészőnek, majd a böngésző visszaküld a szervernek minden, a szerver felé irányított kérés alkalmával. Amikor egy weboldalt kérünk le a szervertől, akkor a böngésző elküldi a számára elérhető sütiket. A süti-ket úgy tervezték, hogy megbízható mechanizmust biztosítsanak a webhelyek számára az információk megőrzésére vagy a felhasználók böngészési tevékenységének rögzítésére.',
-            modalBtnSave: 'Beállítások mentése',
-            modalBtnAcceptAll: 'Minden Süti elfogadása',
-            modalAffectedSolutions: 'Mire lesz ez hatással:',
-            learnMore: 'Tudj meg többet',
-            on: 'Be',
-            off: 'Ki'
+          pt: {
+            barMainText: "Esse site utiliza cookies para melhorar sua experiencia.",
+            barLinkSetting: "Customizar de Cookies",
+            barBtnAcceptAll: "Aceitar todos os cookies",
+            modalMainTitle: "Configurações de Cookies",
+            modalMainText: "Os cookies são pequenos arquivos criados por sites visitados e que são salvos no computador do usuário, por meio do navegador.",
+            modalBtnSave: "Salvar configurações atuais dos cookies",
+            modalBtnAcceptAll: "Aceitar todos os cookies e fechar",
+            modalAffectedSolutions: "Soluções afetadas:",
+            learnMore: "Leia mais",
+            on: "Ligado",
+            off: "Desligado"
           }
         }
       },
@@ -3096,7 +3084,7 @@ var Configuration = /*#__PURE__*/function () {
 
       this.cookieToConfig(); // We tell the world we did this
 
-      _Utilities.default.dispatchEvent(document, 'CCConfigSet');
+      _Utilities.default.dispatchEvent(document, "CCConfigSet");
     }
   }, {
     key: "cookieToConfig",
@@ -3108,11 +3096,11 @@ var Configuration = /*#__PURE__*/function () {
         return false;
       }
 
-      document.cookie.split(';').filter(function (item) {
-        if (item.indexOf('konsent') >= 0) {
-          var cookieData = JSON.parse(item.split('=')[1]); // We check cookie version. If older we need to renew cookie.
+      document.cookie.split(";").filter(function (item) {
+        if (item.indexOf("konsent") >= 0) {
+          var cookieData = JSON.parse(item.split("=")[1]); // We check cookie version. If older we need to renew cookie.
 
-          if (typeof cookieData.version === 'undefined') {
+          if (typeof cookieData.version === "undefined") {
             return removeReload();
           } else {
             if (cookieData.version !== window.CookieKonsent.config.cookieVersion) {
@@ -3123,7 +3111,7 @@ var Configuration = /*#__PURE__*/function () {
 
           for (var key in cookieData.categories) {
             // The cookie contains category not present in user config so we invalidate cookie
-            if (typeof window.CookieKonsent.config.categories[key] === 'undefined') {
+            if (typeof window.CookieKonsent.config.categories[key] === "undefined") {
               return removeReload();
             }
           } // We check if cookie data services also exist in user config
@@ -3131,7 +3119,7 @@ var Configuration = /*#__PURE__*/function () {
 
           cookieData.services.forEach(function (service) {
             // The cookie contains service not present in user config so we invalidate cookie
-            if (typeof window.CookieKonsent.config.services[service] === 'undefined') {
+            if (typeof window.CookieKonsent.config.services[service] === "undefined") {
               return removeReload();
             }
           }); // We we integrate cookie data into the global config object
@@ -3150,7 +3138,7 @@ var Configuration = /*#__PURE__*/function () {
   }, {
     key: "isObject",
     value: function isObject(item) {
-      return item && _typeof(item) === 'object' && !Array.isArray(item);
+      return item && _typeof(item) === "object" && !Array.isArray(item);
     } //Deep merge two objects.
 
   }, {
@@ -3261,7 +3249,84 @@ var RemoveCookies = /*#__PURE__*/function () {
 }();
 
 exports.default = RemoveCookies;
-},{"./Utilities":"wJ6H"}],"fJUX":[function(require,module,exports) {
+},{"./Utilities":"wJ6H"}],"QBHW":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+var Website = /*#__PURE__*/function () {
+  function Website() {
+    _classCallCheck(this, Website);
+
+    this.websiteID = this.getWebsiteID();
+  }
+
+  _createClass(Website, [{
+    key: "getWebsiteID",
+    value: function getWebsiteID() {
+      var tags = document.head.querySelectorAll('meta');
+      var websiteIDTag = Array.from(tags).find(function (_ref) {
+        var name = _ref.name;
+        return name === "konsent/website-id";
+      });
+
+      if (!websiteIDTag) {
+        throw new Error('[Konsent]: Website not found');
+      }
+
+      return websiteIDTag.content;
+    }
+  }, {
+    key: "getWebsite",
+    value: function () {
+      var _getWebsite = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+        var url, response;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                url = "https://vps38132.publiccloud.com.br/websites/".concat(this.websiteID);
+                _context.next = 3;
+                return fetch(url);
+
+              case 3:
+                response = _context.sent;
+                return _context.abrupt("return", response.json());
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function getWebsite() {
+        return _getWebsite.apply(this, arguments);
+      }
+
+      return getWebsite;
+    }()
+  }]);
+
+  return Website;
+}();
+
+exports.default = Website;
+},{}],"fJUX":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3283,7 +3348,13 @@ var _Configuration = _interopRequireDefault(require("./Configuration"));
 
 var _RemoveCookies = _interopRequireDefault(require("./RemoveCookies"));
 
+var _Website = _interopRequireDefault(require("./Website"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -3298,30 +3369,56 @@ var CookieKonsent = /*#__PURE__*/function () {
 
   _createClass(CookieKonsent, [{
     key: "init",
-    value: function init(configObject) {
-      new _Configuration.default(configObject);
-      var removeCookies = new _RemoveCookies.default();
-      var insertScriptFilter = new _InsertScriptFilter.default();
-      var scriptTagFilter = new _ScriptTagFilter.default();
-      var wrapperFilter = new _WrapperFilter.default();
-      var localCookieFilter = new _LocalCookieFilter.default();
-      removeCookies.init();
-      insertScriptFilter.init();
-      scriptTagFilter.init();
-      wrapperFilter.init();
-      localCookieFilter.init();
-      var UI = new _Interface.default();
-      UI.buildInterface(function () {
-        UI.addEventListeners();
-      });
-    }
+    value: function () {
+      var _init = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(configObject) {
+        var websiteClass, website, removeCookies, insertScriptFilter, scriptTagFilter, wrapperFilter, localCookieFilter, UI;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                websiteClass = new _Website.default();
+                _context.next = 3;
+                return websiteClass.getWebsite();
+
+              case 3:
+                website = _context.sent;
+                new _Configuration.default(configObject, website);
+                removeCookies = new _RemoveCookies.default();
+                insertScriptFilter = new _InsertScriptFilter.default();
+                scriptTagFilter = new _ScriptTagFilter.default();
+                wrapperFilter = new _WrapperFilter.default();
+                localCookieFilter = new _LocalCookieFilter.default();
+                removeCookies.init();
+                insertScriptFilter.init();
+                scriptTagFilter.init();
+                wrapperFilter.init();
+                localCookieFilter.init();
+                UI = new _Interface.default();
+                UI.buildInterface(function () {
+                  UI.addEventListeners();
+                });
+
+              case 17:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      function init(_x) {
+        return _init.apply(this, arguments);
+      }
+
+      return init;
+    }()
   }]);
 
   return CookieKonsent;
 }();
 
 exports.default = CookieKonsent;
-},{"./InsertScriptFilter":"UWvR","./ScriptTagFilter":"ob2e","./WrapperFilter":"KGlf","./LocalCookieFilter":"EVrK","./Interface":"Qw25","./Configuration":"duLQ","./RemoveCookies":"xR4A"}],"Focm":[function(require,module,exports) {
+},{"./InsertScriptFilter":"UWvR","./ScriptTagFilter":"ob2e","./WrapperFilter":"KGlf","./LocalCookieFilter":"EVrK","./Interface":"Qw25","./Configuration":"duLQ","./RemoveCookies":"xR4A","./Website":"QBHW"}],"Focm":[function(require,module,exports) {
 "use strict";
 
 require("core-js/es6/symbol");

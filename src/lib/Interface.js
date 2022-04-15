@@ -1,4 +1,4 @@
-import { el, mount } from 'redom';
+import { el, h, mount } from 'redom';
 import Language from './Language';
 import Utilities from "./Utilities";
 
@@ -366,7 +366,45 @@ export default class Interface {
     }
 
     cookie.services = Utilities.listGlobalServices();
-  
+    
+    var cookiesAccepts = Object.entries(cookie.categories).map(([key, value]) => {
+      const isWanted = value.wanted
+      if(!isWanted) {
+        return []
+      }
+      if(!window.CookieKonsent.config.services[key].cookies) {
+        return []
+      }
+      return window.CookieKonsent.config.services[key].cookies
+    }).reduce((acc, cookiesArr) => {
+      return [...acc, ...cookiesArr]
+    })
+
+    let acceptAllCookies = true
+
+    window.CookieKonsent.config.website.cookies.forEach((cookie) => {
+      let accept = cookiesAccepts.findIndex(
+        (wbCookie) => wbCookie.id === cookie.id
+      )
+      if(accept < 0) {
+        acceptAllCookies = false
+      }
+    })
+
+    const headers = new Headers()
+    headers.set('Content-Type', 'application/json')
+    fetch('https://vps38132.publiccloud.com.br/visitors', {
+      method: 'POST',
+      body: JSON.stringify({
+        website_id: window.CookieKonsent.config.website.id,
+        status: acceptAllCookies ? 'accepted_all' : 'customized',
+        cookies: cookiesAccepts.map(cookies => cookies.id)
+      }),
+      headers
+    }).then(() => {
+      console.log('[Konsent]: update')
+    })
+
     if (callback) callback(cookie);
     return cookie;
   }

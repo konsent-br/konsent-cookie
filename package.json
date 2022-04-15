@@ -12,6 +12,7 @@
     "build:docs": "parcel build src/index.js --out-dir docs_src/src/assets/js --public-url . --out-file konsent-cookie.min.js"
   },
   "devDependencies": {
+    "@babel/plugin-transform-regenerator": "^7.17.9",
     "babel-core": "^6.26.3",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
@@ -19,5 +20,8 @@
     "parcel-bundler": "^1.11.0",
     "redom": "^3.18.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@babel/preset-env": "^7.16.11",
+    "regenerator-runtime": "^0.13.9"
+  }
 }
