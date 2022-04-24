@@ -95,11 +95,11 @@ export default class Interface {
         (0.1, window.CookieKonsent.config.theme.fontColor)
       };border-radius: 50%;-webkit-transition: .4s;transition: .4s;}`,
       `#cconsent-modal .ccm__content .ccm__switch .ccm__switch__slider  {position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: ${lighten(
-        -0.03,
+        0.2,
         window.CookieKonsent.config.theme.primaryColor
       )}; border-radius:12px; -webkit-transition: .4s; transition: .4s;}`,
       `#cconsent-modal .ccm__content .ccm__switch input:checked + .ccm__switch__slider  {background-color: ${lighten(
-        0.065,
+        0.1,
         window.CookieKonsent.config.theme.primaryColor
       )};}`,
       `#cconsent-modal .ccm__content .ccm__switch input:focus + .ccm__switch__slider  {box-shadow: 0 0 1px #28A834;}`,
@@ -126,8 +126,8 @@ export default class Interface {
       "#cconsent-bar .link { margin-right: 8px; }",
       `@media (max-width: 600px) { #cconsent-modal #ccm__footer__consent-modal-submit { margin-left: 0 !important; margin-top: 8px; } }`,
       "#cconsent-bar .email-to-contact { margin-right: 8px; }",
-      `.cconsent-open-button { transition: all .2s; position:fixed; left: 24px; bottom: 24px; display: flex; align-items: center; justify-content: center; background: ${window.CookieKonsent.config.theme.primaryColor}; width: 64px; height: 64px; border-radius: 50%; }`,
-      `.cconsent-open-button svg { width: 32px; height: 32px; color: ${window.CookieKonsent.config.theme.fontColor}; }`,
+      `.cconsent-open-button { z-index: 9997; transition: all .2s; position:fixed; left: 24px; bottom: 24px; display: flex; align-items: center; justify-content: center; background: ${window.CookieKonsent.config.theme.primaryColor}; width: 48px; height: 48px; border-radius: 50%; }`,
+      `.cconsent-open-button svg { width: 24px; height: 24px; color: ${window.CookieKonsent.config.theme.fontColor}; }`,
       `.cconsent-open-button:hover { background: ${lighten(0.1, window.CookieKonsent.config.theme.primaryColor)}; cursor: pointer; }`
 
     );
