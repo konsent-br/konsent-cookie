@@ -1,5 +1,6 @@
 import Utilities from "./Utilities";
 
+
 export default class Configuration {
   constructor(website) {
     this.website = website;
@@ -22,6 +23,9 @@ export default class Configuration {
       modalMainTextMoreLink: null,
       barTimeout: 1000,
       theme: {
+        primaryColor: this.website.theme.primary_color || "#2C7CBF",
+        backgroundColor: this.website.theme.background_color || "#FFF",
+        fontColor: this.website.theme.font_color || "#090909",
         barColor: this.website.theme.primary_color || "#2C7CBF",
         barTextColor: this.website.theme.background_color || "#FFF",
         barMainButtonColor: this.website.theme.background_color || "#FFF",
@@ -34,14 +38,14 @@ export default class Configuration {
         locale: {
           pt: {
             barMainText:
-              "Esse site utiliza cookies para melhorar sua experiencia.",
+              "Usamos cookies para otimizar nosso site e coletar estatísticas de uso.",
             barLinkSetting: "Customizar de Cookies",
             barBtnAcceptAll: "Aceitar todos os cookies",
             modalMainTitle: "Configurações de Cookies",
             modalMainText:
               "Os cookies são pequenos arquivos criados por sites visitados e que são salvos no computador do usuário, por meio do navegador.",
-            modalBtnSave: "Salvar configurações atuais dos cookies",
-            modalBtnAcceptAll: "Aceitar todos os cookies e fechar",
+            modalBtnSave: "Salvar configurações",
+            modalBtnAcceptAll: "Aceitar todos os cookies",
             modalAffectedSolutions: "Soluções afetadas:",
             learnMore: "Leia mais",
             on: "Ligado",
@@ -121,13 +125,21 @@ export default class Configuration {
       services: {
         required: {
           category: "required",
-          cookies: this.website.cookies
+          cookies: [...this.website.cookies
             .filter((cookie) => cookie.type === "required")
             .map((cookie) => ({
               id: cookie.id,
               name: cookie.name,
               domain: cookie.domain,
-            })),
+            })), ...[{
+              id: 'cconsent',
+              name: 'cconsent',
+              domain: window.location.hostname
+            }, {
+              id: 'konsent_visitor_id',
+              name: 'konsent_visitor_id',
+              domain: window.location.hostname
+            }]],
         },
         analytics: {
           category: "analytics",
