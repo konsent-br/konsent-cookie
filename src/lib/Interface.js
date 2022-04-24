@@ -19,7 +19,7 @@ export default class Interface {
         window.CookieKonsent.config.theme.primaryColor +
         `; color:` +
         window.CookieKonsent.config.theme.fontColor +
-        `; padding: 24px 128px; border-radius: 12px; text-align:right; font-family:sans-serif; font-size:14px; line-height:18px; position:fixed; bottom:16px; left:16px; width: calc(100vw - 32px); z-index:9998; transform: translateY(0); transition: transform .25s ease-in-out;}`,
+        `; padding: 24px 128px; border-radius: 12px; text-align:right; font-family:sans-serif; font-size:14px; line-height:18px; position:fixed; bottom:16px; left:16px; width: calc(100% - 32px); z-index:9998; transform: translateY(0); transition: transform .25s ease-in-out;}`,
       `#cconsent-bar.ccb--hidden {transform: translateY(200%); display:block;}`,
       `#cconsent-bar .ccb__wrapper { display:flex; flex-wrap:wrap; justify-content:space-between; max-width:1800px; margin:0 auto;}`,
       `#cconsent-bar .ccb__left { align-self:center; text-align:left; margin:0;}`,
@@ -72,18 +72,18 @@ export default class Interface {
       `#cconsent-modal .ccm__content__heading p {margin-top: 8px; margin-bottom: 0px;}`,
       `#cconsent-modal .ccm__content > .ccm__content__body { background-color:${window.CookieKonsent.config.theme.primaryColor};}`,
       `#cconsent-modal .ccm__content > .ccm__content__body .ccm__tabgroup {margin:0; }`,
-      `#cconsent-modal .ccm__content > .ccm__content__body .ccm__tabgroup .ccm__tab-head .ccm__tab-head__icon-wedge { transition: transform .3s ease-out; transform-origin: 16px 6px 0; position:absolute;right:25px; top:50%; transform:rotate(0deg); transform:translateY(-50%)}`,
-      `#cconsent-modal .ccm__content > .ccm__content__body .ccm__tabgroup .ccm__tab-head .ccm__tab-head__icon-wedge > svg { pointer-events: none; }`,
+      `#cconsent-modal .ccm__content > .ccm__content__body .ccm__tabgroup .ccm__tab-head .ccm__tab-head__icon-wedge { display: flex; align-items: center; justify-content: center;  transition: transform .3s ease-out; transform:rotate(0deg);}`,
+      `#cconsent-modal .ccm__content > .ccm__content__body .ccm__tabgroup .ccm__tab-head .ccm__tab-head__icon-wedge > svg { pointer-events: none; fill: ${window.CookieKonsent.config.theme.fontColor} !important; }`,
       `#cconsent-modal .ccm__tab-head__icon-wedge { display:flex;align-items:center;justify-content:center;}`,
       `#cconsent-modal .ccm__content > .ccm__content__body .ccm__tabgroup.ccm__tabgroup--open .ccm__tab-head .ccm__tab-head__icon-wedge {transform:rotate(-180deg)}`,
       `#cconsent-modal .ccm__content > .ccm__content__body .ccm__tab-head { padding:  12px 24px; margin:0;display:flex;justify-content:space-between;align-items:center;}`,
-      `#cconsent-modal .ccm__content > .ccm__content__body .ccm__tab-content {padding:25px 35px; margin:0}`,
+      `#cconsent-modal .ccm__content > .ccm__content__body .ccm__tab-content {padding:0px 24px; margin:0}`,
       `#cconsent-modal .ccm__content > .ccm__content__body .ccm__tab-head { transition: background-color .5s ease-out }`,
       `#cconsent-modal .ccm__content > .ccm__content__body .ccm__tab-head:hover { background-color:${window.CookieKonsent.config.theme.primaryColor}; }`,
       `#cconsent-modal .ccm__content > .ccm__content__body .ccm__tab-head {font-weight:600; cursor:pointer; position:relative;}`,
       `#cconsent-modal .ccm__content > .ccm__content__body .ccm__tabgroup .ccm__tab-content {display:none;}`,
       `#cconsent-modal .ccm__content > .ccm__content__body .ccm__tabgroup.ccm__tabgroup--open .ccm__tab-head { background-color:${window.CookieKonsent.config.theme.primaryColor}; }`,
-      `#cconsent-modal .ccm__content > .ccm__content__body .ccm__tabgroup.ccm__tabgroup--open .ccm__tab-content {display:flex;justify-content:space-between;align-items:center;flex-direction:row-reverse;}`,
+      `#cconsent-modal .ccm__content > .ccm__content__body .ccm__tabgroup.ccm__tabgroup--open .ccm__tab-content {display:flex;justify-content:space-between;align-items:center;}`,
       `@media (max-width: 600px) { #cconsent-modal .ccm__content > .ccm__content__body .ccm__tabgroup.ccm__tabgroup--open .ccm__tab-content {flex-direction:column} }`,
       `@media (max-width: 600px) { #cconsent-modal .ccm__content > .ccm__content__body .ccm__tab-content .ccm__tab-content__left { margin-bottom:20px; } }`,
       `#cconsent-modal .ccm__content .ccm__switch-component {display:flex; align-items:center;}`,
@@ -105,7 +105,7 @@ export default class Interface {
       `#cconsent-modal .ccm__content .ccm__switch input:focus + .ccm__switch__slider  {box-shadow: 0 0 1px #28A834;}`,
       `#cconsent-modal .ccm__content .ccm__switch input:checked + .ccm__switch__slider:before {content:'';-webkit-transform: translateX(20px); -ms-transform: translateX(20px); transform: translateX(20px);}`,
       `#cconsent-modal .ccm__content > .ccm__content__body .ccm__tab-content h3 {font-size:18px; margin-bottom:10px; line-height:1;}`,
-      `#cconsent-modal .ccm__content > .ccm__content__body .ccm__tab-content p { margin-bottom:0}`,
+      `#cconsent-modal .ccm__content > .ccm__content__body .ccm__tab-content p { margin:0}`,
       "#cconsent-modal .ccm__content > .ccm__content__body .ccm__tab-content .ccm__list:not(:empty) {margin-top:30px;}",
       "#cconsent-modal .ccm__content > .ccm__content__body .ccm__tab-content .ccm__list .ccm__list__title { font-weight:600;}",
       "#cconsent-modal .ccm__content > .ccm__content__body .ccm__tab-content .ccm__list ul { margin:15px 0; padding-left:15px }",
@@ -121,6 +121,7 @@ export default class Interface {
         0.09,
         window.CookieKonsent.config.theme.primaryColor
       )}}`,
+      `#cconsent-modal .ccm__tab-head-container { display: flex; align-items: center; justify-content:center; }`,
       "#cconsent-modal .ccm__footer button#ccm__footer__consent-modal-submit { margin-left:16px; }",
       "#cconsent-bar .links-container { display: flex; flex-direction: row; }",
       "#cconsent-bar .link { margin-right: 8px; }",
@@ -228,6 +229,8 @@ export default class Interface {
         .filter(([key, { cookies }]) => cookies.length > 0)
         .map((arr) => arr[0]);
       for (let key of filterCategories) {
+        let tabId = Math.random().toString(16).slice(2);
+
         contentItems.push(
           el(
             "dl.ccm__tabgroup" +
@@ -239,10 +242,19 @@ export default class Interface {
             { "data-category": key },
             el(
               "dt.ccm__tab-head",
+              el("div.ccm__tab-head-container",
+              el('span.ccm__tab-head__icon-wedge',
+              el(document.createElementNS("http://www.w3.org/2000/svg", "svg"), { version: "1.2", preserveAspectRatio: "none", viewBox: "0 0 24 24", class: "icon-wedge-svg", "data-id": "e9b3c566e8c14cfea38af128759b91a3", style: `opacity: 1; mix-blend-mode: normal; fill: ${window.CookieKonsent.config.theme.fontColor}; width: 32px; height: 32px;`},
+                el(document.createElementNS("http://www.w3.org/2000/svg", "path"), { 'xmlns:default': "http://www.w3.org/2000/svg", class: "icon-wedge-angle-down", d: "M17.2,9.84c0-0.09-0.04-0.18-0.1-0.24l-0.52-0.52c-0.13-0.13-0.33-0.14-0.47-0.01c0,0-0.01,0.01-0.01,0.01  l-4.1,4.1l-4.09-4.1C7.78,8.94,7.57,8.94,7.44,9.06c0,0-0.01,0.01-0.01,0.01L6.91,9.6c-0.13,0.13-0.14,0.33-0.01,0.47  c0,0,0.01,0.01,0.01,0.01l4.85,4.85c0.13,0.13,0.33,0.14,0.47,0.01c0,0,0.01-0.01,0.01-0.01l4.85-4.85c0.06-0.06,0.1-0.15,0.1-0.24  l0,0H17.2z", style: `fill: ${window.CookieKonsent.config.theme.fontColor};` }
+                ),
+              ),
+            ), { 'aria-expanded': 'false', 'aria-controls': 'ccm__tab-content--' + tabId },
               Language.getTranslation(
                 window.CookieKonsent.config.categories[key],
                 window.CookieKonsent.config.language.current,
                 "name"
+              ),
+              
               ),
               !window.CookieKonsent.config.categories[key].needed &&
                 el(
@@ -261,7 +273,14 @@ export default class Interface {
                     )
                   )
                 )
-            )
+            ),
+            el('dd#ccm__tab-content--' + tabId + '.ccm__tab-content',
+              el('div.ccm__tab-content__inner',
+                el('div.ccm__tab-content__desc',
+                  el('p', Language.getTranslation(window.CookieKonsent.config.categories[key], window.CookieKonsent.config.language.current, 'description')),    
+                ),
+              ),
+            ),
           )
         );
         i++;

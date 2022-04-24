@@ -63,7 +63,7 @@ export default class Configuration {
               pt: {
                 name: "Obrigatórios",
                 description:
-                  "Cookies necessários para o correto funcionamento do site.",
+                  "Os cookies obrigatórios não podem ser desativados, pois eles são essenciais para o correto funcionamento do site.",
               },
             },
           },
@@ -74,7 +74,7 @@ export default class Configuration {
               pt: {
                 name: "Performance",
                 description:
-                  "Cookies utilizado para melhorar o desempenho do site",
+                  "Os cookies de performance são utilizados para melhorar a velocidade do site a não ativação desses cookies poderá deixar o site mais lento.",
               },
             },
           },
@@ -84,7 +84,7 @@ export default class Configuration {
             locale: {
               pt: {
                 name: "Marketing",
-                description: "Cookies utilizado para personalizar os anúncios",
+                description: "Os cookies de marketing são utilizando para personalizar seus anúncios, deixando-os mais interativos para você.",
               },
             },
           },
@@ -93,9 +93,9 @@ export default class Configuration {
           language: {
             locale: {
               pt: {
-                name: "Analises",
+                name: "Analise",
                 description:
-                  "Cookies utilizado para acompanhar os eventos realizados pelo site.",
+                  "Cookies de analise são utilizados para nós ver como o site se comporta nos mais variados dispositivo com o intuito de aperfeiçoar cada vez mais o nosso site.",
               },
             },
           },
@@ -105,7 +105,7 @@ export default class Configuration {
             locale: {
               pt: {
                 name: "Diversos",
-                description: "Cookies diversos para as demais funções.",
+                description: "Cookies diversos são utilizado para mais diversas funcionalidades dos sites, como salvar preferencias do usuário.",
               },
             },
           },
@@ -115,7 +115,7 @@ export default class Configuration {
             locale: {
               pt: {
                 name: "Segurança",
-                description: "Cookies relacionados a segurança do site.",
+                description: "Cookies de segurança são utilizado para melhorar a sua segurança utilizando as informações oferecidas por você.",
               },
             },
           },
