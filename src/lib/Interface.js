@@ -398,7 +398,7 @@ export default class Interface {
       const headers = new Headers();
       headers.set("Content-Type", "application/json");
 
-      fetch("https://vps38132.publiccloud.com.br/visitors", {
+      fetch("https://organizations.api.konsent.com.br/visitors", {
         method: "POST",
         body: JSON.stringify({
           website_id: window.CookieKonsent.config.website.id,
@@ -627,7 +627,7 @@ export default class Interface {
     const headers = new Headers();
     const accessKey = window.CookieKonsent.config.accessKey;
     headers.set("Content-Type", "application/json");
-    fetch(`https://vps38132.publiccloud.com.br/visitors/${accessKey}`, {
+    fetch(`https://organizations.api.konsent.com.br/visitors/${accessKey}`, {
       method: "PUT",
       body: JSON.stringify({
         status: acceptAllCookies ? "accepted_all" : "customized",

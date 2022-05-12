@@ -8386,7 +8386,7 @@ var Interface = /*#__PURE__*/function () {
       if (!alreadyVisitor) {
         var headers = new Headers();
         headers.set("Content-Type", "application/json");
-        fetch("https://vps38132.publiccloud.com.br/visitors", {
+        fetch("https://organizations.api.konsent.com.br/visitors", {
           method: "POST",
           body: JSON.stringify({
             website_id: window.CookieKonsent.config.website.id
@@ -8632,7 +8632,7 @@ var Interface = /*#__PURE__*/function () {
       var headers = new Headers();
       var accessKey = window.CookieKonsent.config.accessKey;
       headers.set("Content-Type", "application/json");
-      fetch("https://vps38132.publiccloud.com.br/visitors/".concat(accessKey), {
+      fetch("https://organizations.api.konsent.com.br/visitors/".concat(accessKey), {
         method: "PUT",
         body: JSON.stringify({
           status: acceptAllCookies ? "accepted_all" : "customized",
