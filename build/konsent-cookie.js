@@ -9125,7 +9125,7 @@ var Website = /*#__PURE__*/function () {
             switch (_context.prev = _context.next) {
               case 0:
                 console.log(this);
-                url = "https://vps38132.publiccloud.com.br/websites/".concat(this.websiteID);
+                url = "https://organizations.api.konsent.com.br/websites/".concat(this.websiteID);
                 _context.next = 4;
                 return fetch(url);
 

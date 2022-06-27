@@ -18,7 +18,7 @@ export default class Website {
 
   async getWebsite() {
     console.log(this)
-    const url = `https://vps38132.publiccloud.com.br/websites/${this.websiteID}`
+    const url = `https://organizations.api.konsent.com.br/websites/${this.websiteID}`
     const response = await fetch(url)
     return response.json()
   }
